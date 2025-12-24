@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Enroll Student";
+}
+
+<div class="card">
+    <div class="card-header bg-dark text-white">
+        Enroll Student
+    </div>
+    <div class="card-body">
+        <form asp-action="Enroll" method="post">
+            <input type="hidden" name="studentId" value="@ViewBag.StudentId" />
+
+            <div class="mb-3">
+                <label class="form-label">Select Course</label>
+                <select name="course" class="form-select">
+                    @foreach (var c in ViewBag.Courses)
+                    {
+                        <option value="@c.Id">
+                            @c.Title
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Enroll
+            </button>
+
+            <a asp-controller="Student"
+               asp-action="Index"
+               class="btn btn-secondary">
+                Back
+            </a>
+        </form>
+    </div>
+</div>

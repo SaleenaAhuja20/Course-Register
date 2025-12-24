@@ -1,0 +1,31 @@
+﻿@model SCDLAB.Models.Entities.Student
+
+@{
+    ViewData["Title"] = "Create Student";
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        Create Student
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input asp-for="FullName" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Save
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                Back
+            </a>
+        </form>
+    </div>
+</div>

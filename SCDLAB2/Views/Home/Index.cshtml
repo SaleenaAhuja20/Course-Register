@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h2 class="mb-3">Student Course Enrollment System</h2>
+    <p class="text-muted">Manage students and enroll them in courses</p>
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a asp-controller="Student" asp-action="Index"
+           class="btn btn-primary">
+            View Students
+        </a>
+
+        <a asp-controller="Student" asp-action="Create"
+           class="btn btn-success">
+            Add Student
+        </a>
+    </div>
+</div>

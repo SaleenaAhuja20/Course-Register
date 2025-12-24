@@ -1,0 +1,42 @@
+﻿@model SCDLAB.Models.Entities.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<h3>Student Details</h3>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><b>ID:</b> @Model.Id</li>
+    <li class="list-group-item"><b>Name:</b> @Model.FullName</li>
+    <li class="list-group-item"><b>Age:</b> @Model.Email</li>
+</ul>
+
+<h5>Enrolled Courses</h5>
+
+@if (Model.Enrollments.Any())
+{
+    <ul class="list-group mb-3">
+        @foreach (var e in Model.Enrollments)
+        {
+            <li class="list-group-item">
+                @e.Course.Title
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-muted">No courses enrolled</p>
+}
+
+<a asp-controller="Enrollment"
+   asp-action="Enroll"
+   asp-route-studentId="@Model.Id"
+   class="btn btn-primary">
+    Enroll Course
+</a>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Back
+</a>
